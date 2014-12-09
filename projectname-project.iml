@@ -19,13 +19,13 @@
   <component name="NewModuleRootManager" inherit-compiler-output="false">
     <output url="file://$MODULE_DIR$/meetings-log-project/target/classes" />
     <output-test url="file://$MODULE_DIR$/meetings-log-project/target/test-classes" />
-    <content url="file://$MODULE_DIR$/meetings-log-project">
+    <content url="file://$MODULE_DIR$/projectname-project">
       <sourceFolder url="file://$MODULE_DIR$/meetings-log-project/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/meetings-log-project/src/main/resources" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/meetings-log-project/src/main/webapp" type="java-test-resource" />
       <sourceFolder url="file://$MODULE_DIR$/meetings-log-project/src/test/java" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/meetings-log-project/src/test/resources" type="java-test-resource" />
-      <excludeFolder url="file://$MODULE_DIR$/meetings-log-project/target" />
+      <excludeFolder url="file://$MODULE_DIR$/projectname-project/target" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

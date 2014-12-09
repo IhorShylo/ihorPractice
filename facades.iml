@@ -12,11 +12,11 @@
   <component name="NewModuleRootManager" inherit-compiler-output="false">
     <output url="file://$MODULE_DIR$/meetings-log-project/facades/target/classes" />
     <output-test url="file://$MODULE_DIR$/meetings-log-project/facades/target/test-classes" />
-    <content url="file://$MODULE_DIR$/meetings-log-project/facades">
-      <sourceFolder url="file://$MODULE_DIR$/meetings-log-project/facades/src/main/java" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/meetings-log-project/facades/src/test" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/meetings-log-project/facades/src/main/resources" type="java-resource" />
-      <excludeFolder url="file://$MODULE_DIR$/meetings-log-project/facades/target" />
+    <content url="file://$MODULE_DIR$/projectname-project/facades">
+      <sourceFolder url="file://$MODULE_DIR$/projectname-project/facades/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/projectname-project/facades/src/test" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/projectname-project/facades/src/main/resources" type="java-resource" />
+      <excludeFolder url="file://$MODULE_DIR$/projectname-project/facades/target" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
