@@ -82,33 +82,134 @@ public class UserSqlDao implements UserDAO{
     @Override
     public void insert(User user) {
         StringBuilder qryStrBuilder=new StringBuilder();
-        qryStrBuilder.append("INSERT INTO 'users' SET");
+        qryStrBuilder.append("INSERT INTO 'users' SET ");
 
         Field[] userFields = User.class.getFields();
 
         for(int i=0; i<userFields.length; i++){
-            if(!userFields[i].getName().equals("id"))
-                qryStrBuilder.append(userFields[i].getName()+"=:"+userFields[i].getName()+",");
+            if(!userFields[i].getName().equals("id")){
+                qryStrBuilder.append(userFields[i].getName()+"=:"+userFields[i].getName());
+                if(i!=userFields.length-1){
+                    qryStrBuilder.append(",");
+                }
+
+            }
         }
 
         final String qryStr=qryStrBuilder.toString();
 
         Map<String,Object> mapPars=new HashMap<String,Object>();
+
+        try{
+            for(int i=0; i<userFields.length; i++){
+                Object dummy = new Object();
+                if(!userFields[i].getName().equals("id"))
+                    mapPars.put(":" + userFields[i].getName(),
+                            user.getClass().getDeclaredField(userFields[i].getName()).get(dummy));
+            }
+        }catch(NoSuchFieldException exept){throw new RuntimeException("DB-model incompatibility",exept);}
+        catch (IllegalAccessException exept) {throw new RuntimeException("DB-model incompatibility",exept);}
+
+        namedParamTemplate.update(qryStr,mapPars);
+    }
+
+    @Override
+    public void updateById(User user) {
+        StringBuilder qryStrBuilder=new StringBuilder();
+        qryStrBuilder.append("UPDATE 'users' SET");
+
+        Map<String,Object> mapPars=new HashMap<String,Object>();
+
+        Field[] userFields = User.class.getFields();
+
+        try{
+
+            for(int i=0; i<userFields.length; i++){
+                if(!(userFields[i].getName().equals("id") ||
+                        user.getClass().getDeclaredField(userFields[i].getName()).equals(null))) {
+
+                    qryStrBuilder.append(userFields[i].getName() + "=:" + userFields[i].getName());
+                    if(i!=userFields.length-1){
+                        qryStrBuilder.append(",");
+                    }
+                }
+            }
+
+            qryStrBuilder.append(" WHERE id=:id");
+
+            for(int i=0; i<userFields.length; i++){
+                if(!user.getClass().getDeclaredField(userFields[i].getName()).equals(null))
+                    mapPars.put(":" + userFields[i].getName(),user.getClass().getDeclaredField(userFields[i].getName()));
+            }
+        }catch(NoSuchFieldException exept){throw new RuntimeException("DB-model incompatibility",exept);}
+
+        final String qryStr=qryStrBuilder.toString();
+
+        namedParamTemplate.update(qryStr,mapPars);
+    }
+
+    @Override
+    public void updateByLogin(User user) {
+        StringBuilder qryStrBuilder=new StringBuilder();
+        qryStrBuilder.append("UPDATE 'users' SET");
+
+        Map<String,Object> mapPars=new HashMap<String,Object>();
+
+        Field[] userFields = User.class.getFields();
+
+        try{
+
+            for(int i=0; i<userFields.length; i++){
+                if(!(userFields[i].getName().equals("login") ||
+                        user.getClass().getDeclaredField(userFields[i].getName()).equals(null))) {
+
+                    qryStrBuilder.append(userFields[i].getName() + "=:" + userFields[i].getName());
+                    if(i!=userFields.length-1){
+                        qryStrBuilder.append(",");
+                    }
+                }
+            }
+
+            qryStrBuilder.append(" WHERE login=:login");
+
+            for(int i=0; i<userFields.length; i++){
+                if(!user.getClass().getDeclaredField(userFields[i].getName()).equals(null))
+                    mapPars.put(":" + userFields[i].getName(),user.getClass().getDeclaredField(userFields[i].getName()));
+            }
+        }catch(NoSuchFieldException exept){throw new RuntimeException("DB-model incompatibility",exept);}
+
+        final String qryStr=qryStrBuilder.toString();
+
+        namedParamTemplate.update(qryStr,mapPars);
+    }
+
+    @Override
+    public void removeById(int id) {
+
+        Map<String,Object> mapPars=new HashMap<String,Object>();
+
+        mapPars.put(":id",id);
+
+        final String qryStr="DELETE FROM 'users' WHERE id=:id";
+
+        namedParamTemplate.update(qryStr,mapPars);
+    }
+
+    @Override
+    public void removeByLogin(int login) {
+        Map<String,Object> mapPars=new HashMap<String,Object>();
+
         mapPars.put(":login",login);
+
+        final String qryStr="DELETE FROM 'users' WHERE login=:login";
+
+        namedParamTemplate.update(qryStr,mapPars);
     }
 
     @Override
-    public void update(User user) {
-
-    }
-
-    @Override
-    public void remove(User user) {
-
-    }
-
-    @Override
-    public boolean checkPassword(String login) {
-        return false;
+    public boolean checkPassword(String login, String password) {
+        User usr=findByLogin(login);
+        
+        return usr.getPassword().equals(password);
     }
 }

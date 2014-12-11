@@ -11,11 +11,18 @@ import java.util.List;
 public interface UserDAO {
     public List<User> getAll();
     public List<User> getByEmail(String email);
+
     public User findById(int id);
     public User findByLogin(String login);
+
     public void insert(User user);
-    public void update(User user);
-    public void remove(User user);
-    public boolean checkPassword(String login);
+
+    public void updateById(User user);
+    public void updateByLogin(User user);
+
+    public void removeById(int id);
+    public void removeByLogin(int login);
+
+    public boolean checkPassword(String login, String password);
 
 }
