@@ -209,7 +209,7 @@ public class UserSqlDao implements UserDAO{
     @Override
     public boolean checkPassword(String login, String password) {
         User usr=findByLogin(login);
-        
+
         return usr.getPassword().equals(password);
     }
 }
