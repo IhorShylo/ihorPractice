@@ -26,6 +26,7 @@ public class UserSqlDao implements UserDAO{
     @Autowired
     NamedParameterJdbcTemplate namedParamTemplate;
 
+
     private RowMapper<User> userRowMapper=new RowMapper<User>(){
         public User mapRow (ResultSet res,int rowNum)throws SQLException {
             return new User(
