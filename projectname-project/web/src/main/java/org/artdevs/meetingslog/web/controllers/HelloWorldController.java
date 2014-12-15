@@ -1,6 +1,6 @@
 package org.artdevs.meetingslog.web.controllers;
 
-import org.artdevs.meetingslog.core.CoreComponent;
+import org.artdevs.meetingslog.core.dao.CoreComponent;
 import org.artdevs.meetingslog.facades.FacadeComponent;
 import org.artdevs.meetingslog.services.ServiceComponent;
 import org.springframework.beans.factory.annotation.Autowired;

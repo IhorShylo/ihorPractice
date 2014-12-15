@@ -1,4 +1,4 @@
-package org.artdevs.meetingslog.core;
+package org.artdevs.meetingslog.core.dao;
 
 /**
  * Created by Artem L.V. on 09.12.14.
