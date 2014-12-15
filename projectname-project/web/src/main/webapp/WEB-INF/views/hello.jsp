@@ -11,7 +11,7 @@
 	<title></title>
 </head>
 <body>
-<h1>this is hello :)</h1>
+<h1>this is IhorHello :)</h1>
 <p>${customMessage}</p>
 </body>
 </html>
