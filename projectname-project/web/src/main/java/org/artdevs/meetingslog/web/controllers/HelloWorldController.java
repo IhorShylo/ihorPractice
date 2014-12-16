@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * Created by Artem L.V. on 09.12.14.
@@ -26,14 +27,21 @@ public class HelloWorldController {
 
 	@Autowired
 	ServiceComponent serviceComponent;
-
 	@RequestMapping(method = RequestMethod.GET)
 	public String helloWorld (final Model model) {
+
+		/*String message = coreComponent.getMessage() + "<br>" + facadeComponent.getMessage() + "<br>" + serviceComponent.getMessage();
+
+		model.addAttribute("customMessage", message);*/
+		return "hello";
+	}
+	@RequestMapping(value = "/page",method = RequestMethod.GET)
+	public String showPage (final Model model) {
 
 		String message = coreComponent.getMessage() + "<br>" + facadeComponent.getMessage() + "<br>" + serviceComponent.getMessage();
 
 		model.addAttribute("customMessage", message);
-		return "hello";
+		return "page";
 	}
 
 }
