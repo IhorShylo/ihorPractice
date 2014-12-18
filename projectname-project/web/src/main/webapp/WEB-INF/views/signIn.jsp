@@ -11,6 +11,13 @@
     <title></title>
 </head>
 <body>
-<p>${customMessage}</p>
+<h1>This is SignIn page</h1>
+<br>
+<form action = "signIn" method="GET">
+  <input type="text" name = "Login"> <br>
+  <input type="text" name = "Password"><br>
+  <input type="submit" name = "Submit" value="LogIn"><br>
+  <p>${customMessage}</p>
+</form>
 </body>
 </html>
