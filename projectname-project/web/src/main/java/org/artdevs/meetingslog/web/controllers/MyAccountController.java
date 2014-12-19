@@ -27,7 +27,7 @@ public class MyAccountController {
     @RequestMapping(value = "/myAccount",method = RequestMethod.GET)
     public ModelAndView showPage () {
         ModelAndView modelAndView = new ModelAndView();
-        String message = "This is myAccount page";
+        String message = "MyAccount";
         modelAndView.addObject("customMessage", message);
         modelAndView.setViewName("myAccount");
         return modelAndView;

@@ -12,5 +12,9 @@
 </head>
 <body>
 <h1>${customMessage}</h1><br>
+Name: <br>
+Last Name:<br>
+Email:<br>
+Date of registration:<br>
 </body>
 </html>

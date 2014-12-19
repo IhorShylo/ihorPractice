@@ -12,5 +12,10 @@
 </head>
 <body>
 <h1>${customMessage}</h1><br>
+<form action = "newMessage" method="GET">
+  Enter your message: <input type="text" name = "SomeMessage"> <br>
+  <input type="submit" name = "Submit" value="Enter"><br>
+</form>
+Date User Login: ${someNewMessage}<br>
 </body>
 </html>

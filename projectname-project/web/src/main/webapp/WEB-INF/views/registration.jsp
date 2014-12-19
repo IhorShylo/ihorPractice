@@ -12,5 +12,11 @@
 </head>
 <body>
 <h1><p>${customMessage}</p></h1>
+<form action = "registration" method="GET">
+  Login: <input type="text" name = "Login"> <br>
+  Password: <input type="text" name = "Password"><br>
+  Confirm password <input type="text" name = "PasswordConfirm"><br>
+  <input type="submit" name = "Submit" value="Registration"><br>
+</form>
 </body>
 </html>
