@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title></title>
+  <title></title>
 </head>
 <body>
 <h1>This is SignIn page</h1>
@@ -17,7 +17,8 @@
   <input type="text" name = "Login"> <br>
   <input type="text" name = "Password"><br>
   <input type="submit" name = "Submit" value="LogIn"><br>
-  <p>${customMessage}</p>
+  <p>${login}</p><br>
+  <p>${password}</p><br>
 </form>
 </body>
 </html>
