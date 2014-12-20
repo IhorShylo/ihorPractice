@@ -27,13 +27,17 @@ public class SignInController {
     @Autowired
     ServiceComponent serviceComponent;
     @RequestMapping(value = "/signIn",method = RequestMethod.GET)
-    public ModelAndView showSignIn (HttpServletRequest request) {
+    public ModelAndView showSignIn () {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("signIn");
+        return modelAndView;
+    }@RequestMapping(value = "/signIn",method = RequestMethod.POST)
+    public ModelAndView showSignIn1 (HttpServletRequest request) {
         ModelAndView modelAndView = new ModelAndView();
         String login = request.getParameter("Login");
         String password = request.getParameter("Password");
         modelAndView.addObject("login", login);
         modelAndView.addObject("password", password);
-
         modelAndView.setViewName("signIn");
         return modelAndView;
     }

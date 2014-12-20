@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * Created by Яна on 19.12.14.
@@ -27,8 +28,18 @@ public class RegistrationController {
     @RequestMapping(value = "/registration",method = RequestMethod.GET)
     public ModelAndView showPage () {
         ModelAndView modelAndView = new ModelAndView();
-        String message = "This is registration page";
-        modelAndView.addObject("customMessage", message);
+        modelAndView.setViewName("registration");
+        return modelAndView;
+    }
+    @RequestMapping(value = "/registration",method = RequestMethod.POST)
+    public ModelAndView showPage1 (HttpServletRequest request) {
+        ModelAndView modelAndView = new ModelAndView();
+        String login = request.getParameter("Login");
+        String password = request.getParameter("Password");
+        String passwordConfirm = request.getParameter("PasswordConfirm");
+        modelAndView.addObject("login", login);
+        modelAndView.addObject("password", password);
+        modelAndView.addObject("passwordConfirm", passwordConfirm);
         modelAndView.setViewName("registration");
         return modelAndView;
     }

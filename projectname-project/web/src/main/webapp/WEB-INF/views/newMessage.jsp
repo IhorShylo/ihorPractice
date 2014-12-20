@@ -11,11 +11,11 @@
   <title></title>
 </head>
 <body>
-<h1>${customMessage}</h1><br>
-<form action = "newMessage" method="GET">
+<h1>This is newMessage page</h1><br>
+<form action = "newMessage" method="POST">
   Enter your message: <input type="text" name = "SomeMessage"> <br>
   <input type="submit" name = "Submit" value="Enter"><br>
+  Date User Login: ${someNewMessage}<br>
 </form>
-Date User Login: ${someNewMessage}<br>
 </body>
 </html>

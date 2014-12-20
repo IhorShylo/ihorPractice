@@ -26,11 +26,15 @@ public class NewMessageController {
     @Autowired
     ServiceComponent serviceComponent;
     @RequestMapping(value = "/newMessage",method = RequestMethod.GET)
-    public ModelAndView showPage (HttpServletRequest request) {
+    public ModelAndView showPage () {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("newMessage");
+        return modelAndView;
+    }
+    @RequestMapping(value = "/newMessage",method = RequestMethod.POST)
+    public ModelAndView showPage1 (HttpServletRequest request) {
         ModelAndView modelAndView = new ModelAndView();
         String someNewMessage = request.getParameter("SomeMessage");
-        String message = "This is newMessage page";
-        modelAndView.addObject("customMessage", message);
         modelAndView.addObject("someNewMessage", someNewMessage);
         modelAndView.setViewName("newMessage");
         return modelAndView;

@@ -16,7 +16,7 @@
 <a href="registration">Registration </a> <br>
 <a href="myAccount">My Account </a> <br>
 <a href="messages">Messages </a><br>
-<form action = "signIn" method="GET">
+<form action = "signIn" method="POST">
   Login: <input type="text" name = "Login"> <br>
   Password: <input type="text" name = "Password"><br>
   <input type="submit" name = "Submit" value="LogIn"><br>
